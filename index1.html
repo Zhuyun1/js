@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function bake ( degree ) {
+    var message
+    if ( degree > 500 ) {
+      message = "我不是核反应堆"
+      alert ( " 我不是核反应堆 " )
+    } else if ( degree < 100 ) {
+      message = "我不是冰箱"
+      alert ( " 我不是冰箱 " )
+    } else {
+      message = "正常工作"
+      alert ( " 正常工作 " )
+    }
+  //  return message
+  }
+  //  alert ( bake ( 500 ) )
+  bake ( 500 )
+
+  function add (x,y) {
+    return x+y
+  }
+  document.write(add(3,4))
+
+  var a=3,b=4
+  function swap (a,b) {
+    var c
+    c=a
+    a=b
+    b=c
+    document.write(a,b)
+  }
+  swap(a,b)
+  </script>
+</body>
+</html>
