@@ -45,12 +45,15 @@ var model = {
   isSunk: function(ship) {
     var count = 0;
     for (var i = 0; i < this.shipLength; i++) {
-      if (ship.hits[i] !== "hit") {
+      if (ship.hits[i] === "hit") {
         count ++;
-        return false;
       }
+    };
+
+    if (count > this.shipLength*0.666){
+      return true;
     }
-    return true;
+    return false
   },
 
   generateShip: function() {
