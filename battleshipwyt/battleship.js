@@ -18,14 +18,14 @@ var model = {
   numShips: 3,
   shipsSunk: 0,
   shipLength: 3,
-  ships: [ { locations: [0, 0, 0], hits: ["", "", ""] },
-           { locations: [0, 0, 0], hits: ["", "", ""] },
-           { locations: [0, 0, 0], hits: ["", "", ""] } ],
+  ships: [ { locations: [0, 0, 0], hits: ["", "", ""], isSunked: false},
+           { locations: [0, 0, 0], hits: ["", "", ""], isSunked: false},
+           { locations: [0, 0, 0], hits: ["", "", ""], isSunked: false},],
 
   fire: function(guess) {
     for (var i = 0; i < this.numShips; i++) {
       var ship = this.ships[i];
-      var index = ship.locations.indexOf(guess);
+      var index = ship.locations.indexOf(guess)
       if (index >= 0) {
         ship.hits[index] = 'hit';
         view.displayHit(guess);
@@ -33,6 +33,12 @@ var model = {
         if (this.isSunk(ship)) {
           view.displayMessage("You sank my battleship!");
           this.shipsSunk++;
+          ship.isSunked = true
+          if (ship.isSunked = true) {
+            for(var i = 0; i < this.shipLength; i++) {
+              document.getElementById(ship.locations[i]).onclick=null
+            }
+          }
         }
         return true;
       }
@@ -47,10 +53,23 @@ var model = {
     for (var i = 0; i < this.shipLength; i++) {
       if (ship.hits[i] === "hit") {
         count ++;
+        // 一格被击中 三格全绿
+        for (var f = 0; f < this.shipLength; f++) {
+          view.displayHit(ship.locations[f])
+          var tdColor = document.getElementById(event.target.id)
+          tdColor.style.backgroundImage ="url('战舰素材/1.png')"
+        }
       }
     };
 
+    //击中两次击沉
     if (count > this.shipLength*0.666){
+      //两次击中全部变红
+      for (var f = 0; f < this.shipLength; f++) {
+        var changeColor1 = document.getElementById(ship.locations[f])
+        view.displayHit(ship.locations[f])
+        changeColor1.style.backgroundImage = "url('战舰素材/1.png')"
+      }
       return true;
     }
     return false

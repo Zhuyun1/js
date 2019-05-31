@@ -8,6 +8,7 @@ div#board {
   height: 863px;
   margin: auto;
   background: url("战舰素材/board.jpg") no-repeat;
+  cursor: url("战舰素材/cur.png"), auto;
 }
 
 div#messageArea {
@@ -44,7 +45,7 @@ form input {
 }
 
 .hit {
-  background: url("战舰素材/ship.png") no-repeat center center;
+  background: url("战舰素材/ship1.png") no-repeat center center;
 }
 
 .miss {
