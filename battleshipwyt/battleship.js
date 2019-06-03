@@ -9,7 +9,7 @@ var view = {
   },
   displayMiss: function (location) {
     var cell = document.getElementById(location);
-    cell.setAttribute('class','miss')
+    cell.setAttribute('class', 'miss');
   }
 }
 
@@ -44,7 +44,7 @@ var model = {
       }
     }
     view.displayMiss(guess);
-    view.displayMessage("You misses.");
+    view.displayMessage("You missed.");
     return false;
   },
 
